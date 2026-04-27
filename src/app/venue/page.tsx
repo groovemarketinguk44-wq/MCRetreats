@@ -27,64 +27,34 @@ export default function VenuePage() {
   const alt = (key: string, fallback: string) => (alts[key] as string) || fallback
 
   const facilities = [
-    {
-      key: 'venue_pool',
-      fallback: '/images/venue/8_pool.jpg',
-      title: 'Indoor Pool',
-      defaultAlt: 'Indoor heated pool at The Corn Crib',
-    },
-    {
-      key: 'venue_sauna',
-      fallback: '/images/venue/4_sauna.jpg',
-      title: 'Sauna',
-      defaultAlt: 'Sauna at The Corn Crib',
-    },
-    {
-      key: 'venue_kitchen',
-      fallback: '/images/venue/6_kitchen.jpg',
-      title: 'Kitchen & Dining',
-      defaultAlt: 'Professional kitchen at The Corn Crib',
-    },
-    {
-      key: 'venue_outdoor_dining',
-      fallback: '/images/venue/19_outdoor_dining.jpg',
-      title: 'Outdoor Dining',
-      defaultAlt: 'Outdoor dining at The Corn Crib',
-    },
-    {
-      key: 'venue_firepit',
-      fallback: '/images/venue/1_firepit.jpg',
-      title: 'Fire Pit',
-      defaultAlt: 'Fire pit at The Corn Crib',
-    },
-    {
-      key: 'venue_games_room',
-      fallback: '/images/venue/9_games_room.jpg',
-      title: 'Games Room',
-      defaultAlt: 'Games room at The Corn Crib',
-    },
+    { key: 'venue_pool', fallback: '/images/venue/8_pool.jpg', title: 'Indoor Pool' },
+    { key: 'venue_sauna', fallback: '/images/venue/4_sauna.jpg', title: 'Sauna' },
+    { key: 'venue_kitchen', fallback: '/images/venue/6_kitchen.jpg', title: 'Kitchen / Dining' },
+    { key: 'venue_outdoor_dining', fallback: '/images/venue/19_outdoor_dining.jpg', title: 'Outdoor Dining / Lawn' },
+    { key: 'venue_firepit', fallback: '/images/venue/1_firepit.jpg', title: 'Fire Pit' },
+    { key: 'venue_games_room', fallback: '/images/venue/9_games_room.jpg', title: 'Games Room' },
   ]
 
   const rooms = [
     { key: 'venue_bunk_room', fallback: '/images/venue/10_bunk_room.jpg', label: 'Bunk Room' },
-    { key: 'venue_floral_room', fallback: '/images/venue/11_floral_room.jpg', label: 'Floral Room' },
-    { key: 'venue_botanical_room', fallback: '/images/venue/12_botanical_room.jpg', label: 'Botanical Room' },
-    { key: 'venue_orange_room', fallback: '/images/venue/13_orange_room.jpg', label: 'Orange Room' },
-    { key: 'venue_green_floral', fallback: '/images/venue/14_green_floral.jpg', label: 'Green Floral' },
+    { key: 'venue_floral_room', fallback: '/images/venue/11_floral_room.jpg', label: 'Floral Bedroom' },
+    { key: 'venue_botanical_room', fallback: '/images/venue/12_botanical_room.jpg', label: 'Green Botanical Bedroom' },
+    { key: 'venue_orange_room', fallback: '/images/venue/13_orange_room.jpg', label: 'Orange Bedroom' },
+    { key: 'venue_green_floral', fallback: '/images/venue/14_green_floral.jpg', label: 'Green Floral Bedroom' },
   ]
 
   const outdoor = [
-    { key: 'venue_garden', fallback: '/images/venue/18_garden.jpg', label: 'Garden Steps & Lavender' },
-    { key: 'venue_pool_dusk', fallback: '/images/venue/3_pool_exterior_dusk.jpg', label: 'Pool at Dusk' },
-    { key: 'venue_sunset', fallback: '/images/venue/7_venue_sunset.jpg', label: 'Golden Hour' },
+    { key: 'venue_garden', fallback: '/images/venue/18_garden.jpg', label: 'Garden Steps and Lavender' },
+    { key: 'venue_pool_dusk', fallback: '/images/venue/3_pool_exterior_dusk.jpg', label: 'Pool Building Exterior at Dusk' },
+    { key: 'venue_sunset', fallback: '/images/venue/7_venue_sunset.jpg', label: 'Venue at Sunset' },
   ]
 
   const extras = [
-    { key: 'venue_decking', fallback: '/images/venue/2_decking_views.jpg', label: 'Decking & Views' },
-    { key: 'venue_pool_table', fallback: '/images/venue/15_pool_table.jpg', label: 'Pool Table' },
-    { key: 'venue_chess', fallback: '/images/venue/16_chess.jpg', label: 'Giant Chess' },
+    { key: 'venue_decking', fallback: '/images/venue/2_decking_views.jpg', label: 'Decking with Views' },
+    { key: 'venue_pool_table', fallback: '/images/venue/15_pool_table.jpg', label: 'Pool Table / Spiral Staircase' },
+    { key: 'venue_chess', fallback: '/images/venue/16_chess.jpg', label: 'Giant Chess Board' },
     { key: 'venue_bathroom', fallback: '/images/venue/5_bathroom.jpg', label: 'Ensuite Bathroom' },
-    { key: 'venue_exterior', fallback: '/images/venue/17_exterior_day.jpg', label: 'Exterior Day' },
+    { key: 'venue_exterior', fallback: '/images/venue/17_exterior_day.jpg', label: 'Main Building Exterior Day' },
   ]
 
   return (
@@ -165,7 +135,7 @@ export default function VenuePage() {
                 <div className="relative h-52 img-placeholder overflow-hidden">
                   <Image
                     src={img(f.key, f.fallback)}
-                    alt={alt(f.key, f.defaultAlt)}
+                    alt={alt(f.key, f.title)}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -173,7 +143,7 @@ export default function VenuePage() {
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-lg text-[#F2EDE4] mb-2">{f.title}</h3>
-                  <p className="text-[#706050] text-sm leading-relaxed">{alt(f.key, f.defaultAlt)}</p>
+                  <p className="text-[#706050] text-sm leading-relaxed">{alt(f.key, f.title)}</p>
                 </div>
               </div>
             ))}
