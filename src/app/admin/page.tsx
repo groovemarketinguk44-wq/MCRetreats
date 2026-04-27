@@ -320,6 +320,19 @@ export default function AdminPage() {
     return (content as Record<string, unknown>).imageTitles as Record<string, unknown> ?? {}
   }
 
+  const handleRemoveImage = async (fieldId: string) => {
+    const src = (imagesData()[fieldId] as string) || ''
+    if (src.startsWith('/api/uploads/')) {
+      await fetch('/api/admin/delete-upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token()}` },
+        body: JSON.stringify({ filePath: src }),
+      })
+    }
+    setField(['images', fieldId], '')
+    setDirty(true)
+  }
+
   const handleUpload = async (fieldId: string, file: File) => {
     setUploading((prev) => ({ ...prev, [fieldId]: true }))
     try {
@@ -565,14 +578,25 @@ export default function AdminPage() {
                         {field.label}
                       </p>
 
-                      {/* Preview */}
+                      {/* Preview + remove */}
                       {src && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={src}
-                          alt=""
-                          className="w-full max-h-48 object-cover border border-[rgba(196,150,58,0.15)]"
-                        />
+                        <div className="relative">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={src}
+                            alt=""
+                            className="w-full max-h-48 object-cover border border-[rgba(196,150,58,0.15)]"
+                          />
+                          <button
+                            onClick={() => handleRemoveImage(field.id)}
+                            className="absolute top-2 right-2 flex items-center gap-1 px-2 py-1 text-xs font-medium"
+                            style={{ background: 'rgba(8,6,4,0.85)', border: '1px solid rgba(220,50,50,0.4)', color: '#f87171' }}
+                            title="Remove image"
+                          >
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                            Remove
+                          </button>
+                        </div>
                       )}
 
                       {/* Upload button */}
