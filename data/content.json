@@ -1,0 +1,85 @@
+{
+  "pages": {
+    "home": {
+      "metaTitle": "MC Retreats | Elite Fitness Retreat — The Corn Crib, Wiltshire · Sept 2025",
+      "metaDescription": "A 4-day elite performance retreat for 10 men. Training, recovery, nutrition and mindset at The Corn Crib, Wiltshire. 7–11 September 2025. From £1,495.",
+      "h1": "Rebuild. Reset. Rise.",
+      "ogTitle": "MC Retreats | Elite 4-Day Fitness Retreat, Wiltshire 2025",
+      "ogDescription": "4 days. 10 men. One transformational experience at The Corn Crib, Wiltshire — 7–11 September 2025.",
+      "canonicalUrl": "https://mcretreats.com",
+      "keywords": ["fitness retreat uk", "mens fitness retreat", "wellness retreat wiltshire", "performance retreat", "mens retreat 2025"],
+      "headline": "Rebuild. Reset. Rise.",
+      "subheadline": "A 4-day elite performance retreat for men who are serious about transforming their body, mind, and standards.",
+      "whoDescription": "Built for high-performing men who have stalled. Whether you've lost direction in training, need a physical reset, or are ready to invest in yourself at the highest level — this is your environment.",
+      "experienceIntro": "Four days of structured training, expert nutrition, guided recovery, and performance mindset work. Every element designed with one goal: results that stay."
+    },
+    "about": {
+      "metaTitle": "About MC Retreats | Steven Machin & Gaz Crosby — Elite Performance Coaches",
+      "metaDescription": "Meet the coaches behind MC Retreats. Steven Machin and Gaz Crosby bring decades of elite performance coaching to a 4-day transformational retreat in Wiltshire.",
+      "h1": "The Team Behind The Retreat",
+      "ogTitle": "About MC Retreats — Meet Your Coaches",
+      "ogDescription": "Two elite coaches. One shared mission. Meet Steven Machin and Gaz Crosby.",
+      "canonicalUrl": "https://mcretreats.com/about",
+      "keywords": ["steven machin coach", "gaz crosby fitness", "mc retreats coaches", "performance coaches uk"],
+      "stevenBio": "Steven Machin has spent over a decade helping high-performing men rebuild their physical foundations and unlock elite standards of performance. A specialist in strength, conditioning, and performance mindset, Steven doesn't work with excuses — he works with results. His methodology is direct, evidence-based, and built around sustainable transformation that goes far beyond the retreat itself.",
+      "gazBio": "Gaz Crosby brings an uncompromising approach to fitness and lifestyle transformation. With years of experience coaching men through physical and mental plateaus, Gaz understands what it takes to rebuild from the ground up. His training philosophy combines functional strength, metabolic performance, and the kind of honest accountability that most men never experience."
+    },
+    "experience": {
+      "metaTitle": "The Retreat Experience | MC Retreats — Training, Recovery, Nutrition, Mindset",
+      "metaDescription": "Structured training, expert nutrition, guided recovery, and performance mindset. Discover exactly what 4 days at MC Retreats looks like.",
+      "h1": "What Awaits You",
+      "ogTitle": "The MC Retreats Experience",
+      "ogDescription": "Training. Recovery. Nutrition. Mindset. Four pillars. Four days. One transformation.",
+      "canonicalUrl": "https://mcretreats.com/experience",
+      "keywords": ["fitness retreat experience", "retreat training programme", "cold plunge sauna retreat", "performance mindset retreat"],
+      "trainingDesc": "Every session is intentional. From early morning conditioning to strength work and metabolic finishers — you'll be pushed, but with precision. No wasted effort, no filler. Just structured progressive work that leaves a mark.",
+      "recoveryDesc": "Cold plunge, sauna sessions, guided breathwork, and structured restoration protocols. Recovery isn't passive here — it's a performance tool. You'll leave knowing how to use it.",
+      "nutritionDesc": "Every meal is planned and prepared to support performance. High protein, whole foods, perfectly timed to training. You'll learn why fuelling properly is the missing piece — and take that knowledge home.",
+      "mindsetDesc": "Group sessions focused on the psychology of high performance. Understand what's been holding you back, where your patterns come from, and how to replace them. You'll leave with a framework you'll use for years."
+    },
+    "venue": {
+      "metaTitle": "The Corn Crib, Wiltshire | MC Retreats — Exclusive Private Venue",
+      "metaDescription": "The Corn Crib is a stunning private estate in the heart of Wiltshire with 10 rooms, heated outdoor pool, Finnish sauna, and professional kitchen. Exclusive to MC Retreats.",
+      "h1": "The Corn Crib, Wiltshire",
+      "ogTitle": "Our Venue — The Corn Crib, Wiltshire",
+      "ogDescription": "Exclusive private estate. 10 rooms. Heated pool, Finnish sauna, stunning gardens. The ultimate performance environment.",
+      "canonicalUrl": "https://mcretreats.com/venue",
+      "keywords": ["corn crib wiltshire", "private fitness retreat venue", "exclusive retreat uk", "luxury fitness venue wiltshire"],
+      "venueIntro": "The Corn Crib is an exclusive private estate nestled deep in the Wiltshire countryside. Taken over entirely for 10 men — no other guests, no distractions — this is a space designed for focus, performance, and transformation.",
+      "venueDescription": "Set within beautifully maintained private grounds, The Corn Crib delivers everything a high-performance retreat demands. A heated outdoor pool. A Finnish sauna. A professional kitchen. Multiple spaces for training, recovery, and reflection. It's not just a beautiful venue — it's the right environment."
+    },
+    "pricing": {
+      "metaTitle": "Pricing & Payment | MC Retreats September 2025 — From £1,495",
+      "metaDescription": "MC Retreats from £1,495 per person or £2,200 per room. Flexible options: pay in full, £500 deposit, or payment plan until September. Only 10 rooms available.",
+      "h1": "Your Investment",
+      "ogTitle": "MC Retreats Pricing — From £1,495",
+      "ogDescription": "From £1,495 per person. Deposit from £500. Payment plan available. Only 10 rooms.",
+      "canonicalUrl": "https://mcretreats.com/pricing",
+      "keywords": ["mc retreats price", "fitness retreat cost uk", "retreat deposit payment plan", "wiltshire retreat booking"],
+      "pricingIntro": "This is a serious investment in yourself. The environment, expertise, and experience are built to deliver results that compound for years. The question isn't whether you can afford it — it's whether you can afford not to."
+    },
+    "apply": {
+      "metaTitle": "Apply For Your Place | MC Retreats September 2025",
+      "metaDescription": "Apply for your place on the MC Retreats 7–11 September 2025 fitness retreat. Only 10 spots available. Secure yours with a £500 deposit.",
+      "h1": "Apply For Your Place",
+      "ogTitle": "Apply — MC Retreats September 2025",
+      "ogDescription": "Only 10 spots. Apply now to secure your place on the retreat.",
+      "canonicalUrl": "https://mcretreats.com/apply",
+      "keywords": ["apply mc retreats", "book fitness retreat uk", "retreat booking september 2025"],
+      "formIntro": "Complete the form below to apply for your place. Once submitted, you'll select your payment option and proceed to secure checkout. Spots are limited to 10."
+    }
+  },
+  "settings": {
+    "depositAmount": 500,
+    "fullPricePP": 1495,
+    "fullPriceRoom": 2200,
+    "ctaText": "Apply For Your Place",
+    "siteName": "MC Retreats",
+    "siteUrl": "https://mcretreats.com",
+    "retreatDates": "7–11 September 2025",
+    "retreatLocation": "The Corn Crib, Wiltshire",
+    "capacity": 10,
+    "pricingNote": "All payments processed securely via Stripe. Payment plans run until August 2025.",
+    "successMessage": "Your place is reserved. We'll be in touch within 24 hours with everything you need to prepare."
+  }
+}
