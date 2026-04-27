@@ -35,6 +35,7 @@ export interface ContentData {
     [key: string]: unknown
   }
   images?: Record<string, string>
+  imageAlts?: Record<string, string>
 }
 
 function readDefaultContent(): ContentData {

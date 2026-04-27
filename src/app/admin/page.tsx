@@ -189,6 +189,7 @@ export default function AdminPage() {
   const [saving, setSaving] = useState(false)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
   const [dirty, setDirty] = useState(false)
+  const [uploading, setUploading] = useState<Record<string, boolean>>({})
 
   const token = () =>
     typeof window !== 'undefined' ? localStorage.getItem('mc_admin_token') : null
@@ -242,6 +243,9 @@ export default function AdminPage() {
       const next = JSON.parse(JSON.stringify(prev))
       let obj = next as Record<string, unknown>
       for (let i = 0; i < path.length - 1; i++) {
+        if (obj[path[i]] == null || typeof obj[path[i]] !== 'object') {
+          obj[path[i]] = {}
+        }
         obj = obj[path[i]] as Record<string, unknown>
       }
       obj[path[path.length - 1]] = value
@@ -273,6 +277,32 @@ export default function AdminPage() {
   const imagesData = () => {
     if (!content) return {}
     return (content as Record<string, unknown>).images as Record<string, unknown> ?? {}
+  }
+
+  const imageAltsData = () => {
+    if (!content) return {}
+    return (content as Record<string, unknown>).imageAlts as Record<string, unknown> ?? {}
+  }
+
+  const handleUpload = async (fieldId: string, file: File) => {
+    setUploading((prev) => ({ ...prev, [fieldId]: true }))
+    try {
+      const fd = new FormData()
+      fd.append('file', file)
+      const r = await fetch('/api/admin/upload', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token()}` },
+        body: fd,
+      })
+      const data = await r.json()
+      if (data.path) {
+        setField(['images', fieldId], data.path)
+        setDirty(true)
+      }
+    } catch {
+      // upload failed silently — user can retry
+    }
+    setUploading((prev) => ({ ...prev, [fieldId]: false }))
   }
 
   const settingsData = () => {
@@ -348,6 +378,7 @@ export default function AdminPage() {
 
   const pd = pageData()
   const imgs = imagesData()
+  const alts = imageAltsData()
   const settings = settingsData()
 
   // ── Admin UI ──
@@ -470,32 +501,81 @@ export default function AdminPage() {
           {activeSection === 'images' && (
             <div className="max-w-2xl">
               <p className="text-[#706050] text-sm mb-6 leading-relaxed">
-                Paste any URL (Dropbox, Google Drive direct link, Cloudinary, etc.) or a local path starting with <code className="text-[#C4963A] text-xs bg-[#16130E] px-1.5 py-0.5">/images/...</code>. Leave blank to use the default local file.
+                Upload images from your device. Each image can have alt text for accessibility and SEO.
               </p>
-              <div className="space-y-5">
-                {IMAGE_FIELDS.map((field) => (
-                  <div key={field.id}>
-                    <label className="block text-[#A09080] text-xs font-medium tracking-[0.1em] uppercase mb-1">
-                      {field.label}
-                    </label>
-                    {field.hint && <p className="text-[#5A5048] text-xs mb-1.5">{field.hint}</p>}
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        value={(imgs[field.id] as string) || ''}
-                        onChange={(e) => setField(['images', field.id], e.target.value)}
-                        placeholder={`/images/...`}
-                        className="flex-1 bg-[#14100C] border border-[rgba(196,150,58,0.15)] text-[#F2EDE4] placeholder-[#3A3028] px-3 py-2.5 text-sm focus:outline-none focus:border-[#C4963A] transition-colors font-mono"
-                      />
-                      {(imgs[field.id] as string) && (
-                        <div
-                          className="w-10 h-10 flex-shrink-0 bg-cover bg-center border border-[rgba(196,150,58,0.15)]"
-                          style={{ backgroundImage: `url(${imgs[field.id]})` }}
+              <div className="space-y-8">
+                {IMAGE_FIELDS.map((field) => {
+                  const src = (imgs[field.id] as string) || ''
+                  const isUploading = uploading[field.id]
+                  return (
+                    <div key={field.id} className="border border-[rgba(196,150,58,0.1)] p-4 space-y-3">
+                      <p className="text-[#A09080] text-xs font-medium tracking-[0.1em] uppercase">
+                        {field.label}
+                      </p>
+
+                      {/* Preview */}
+                      {src && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={src}
+                          alt=""
+                          className="w-full max-h-40 object-cover border border-[rgba(196,150,58,0.15)]"
                         />
                       )}
+
+                      {/* Upload button */}
+                      <label
+                        className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium tracking-wide uppercase cursor-pointer transition-colors"
+                        style={{
+                          background: isUploading ? 'rgba(196,150,58,0.1)' : 'rgba(196,150,58,0.15)',
+                          border: '1px solid rgba(196,150,58,0.3)',
+                          color: '#C4963A',
+                          opacity: isUploading ? 0.6 : 1,
+                        }}
+                      >
+                        {isUploading ? (
+                          <>
+                            <span className="w-3 h-3 border border-[#C4963A] border-t-transparent rounded-full animate-spin" />
+                            Uploading…
+                          </>
+                        ) : (
+                          <>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            {src ? 'Replace image' : 'Upload image'}
+                          </>
+                        )}
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          disabled={isUploading}
+                          onChange={(e) => {
+                            const file = e.target.files?.[0]
+                            if (file) handleUpload(field.id, file)
+                            e.target.value = ''
+                          }}
+                        />
+                      </label>
+
+                      {/* Alt text */}
+                      <div>
+                        <label className="block text-[#5A5048] text-xs mb-1">
+                          Alt text / description
+                        </label>
+                        <input
+                          type="text"
+                          value={(alts[field.id] as string) || ''}
+                          onChange={(e) => {
+                            setField(['imageAlts', field.id], e.target.value)
+                            setDirty(true)
+                          }}
+                          placeholder={`Describe this image for accessibility…`}
+                          className="w-full bg-[#14100C] border border-[rgba(196,150,58,0.15)] text-[#F2EDE4] placeholder-[#3A3028] px-3 py-2 text-sm focus:outline-none focus:border-[#C4963A] transition-colors"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           )}
