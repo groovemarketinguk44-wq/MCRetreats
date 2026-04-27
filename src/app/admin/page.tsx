@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from 'react'
 // ── Types ──────────────────────────────────────────────────────────────
 type PageKey = 'home' | 'about' | 'experience' | 'venue' | 'pricing' | 'apply'
 type Section = 'seo' | 'content' | 'images' | 'settings'
+type ImgPage = 'homepage' | 'about' | 'experience' | 'venue'
 
 interface Field {
   id: string
@@ -121,31 +122,61 @@ const CONTENT_FIELDS: Record<PageKey, Field[]> = {
   ],
 }
 
-const IMAGE_FIELDS: Field[] = [
-  { id: 'hero', label: 'Site Hero — Background Image' },
-  { id: 'stevenPhoto', label: 'Steven Machin — Photo' },
-  { id: 'gazPhoto', label: 'Gaz Crosby — Photo' },
-  { id: 'venue_firepit', label: 'Image 1 — Fire Pit' },
-  { id: 'venue_decking', label: 'Image 2 — Decking with Views' },
-  { id: 'venue_pool_dusk', label: 'Image 3 — Pool Building Exterior at Dusk' },
-  { id: 'venue_sauna', label: 'Image 4 — Sauna' },
-  { id: 'venue_bathroom', label: 'Image 5 — Ensuite Bathroom' },
-  { id: 'venue_kitchen', label: 'Image 6 — Kitchen / Dining' },
-  { id: 'venue_sunset', label: 'Image 7 — Venue at Sunset' },
-  { id: 'venue_pool', label: 'Image 8 — Indoor Pool' },
-  { id: 'venue_games_room', label: 'Image 9 — Games Room' },
-  { id: 'venue_bunk_room', label: 'Image 10 — Bunk Room' },
-  { id: 'venue_floral_room', label: 'Image 11 — Floral Bedroom' },
-  { id: 'venue_botanical_room', label: 'Image 12 — Green Botanical Bedroom' },
-  { id: 'venue_orange_room', label: 'Image 13 — Orange Bedroom' },
-  { id: 'venue_green_floral', label: 'Image 14 — Green Floral Bedroom' },
-  { id: 'venue_pool_table', label: 'Image 15 — Pool Table / Spiral Staircase' },
-  { id: 'venue_chess', label: 'Image 16 — Giant Chess Board' },
-  { id: 'venue_exterior', label: 'Image 17 — Main Building Exterior Day' },
-  { id: 'venue_garden', label: 'Image 18 — Garden Steps and Lavender' },
-  { id: 'venue_outdoor_dining', label: 'Image 19 — Outdoor Dining / Lawn' },
-  { id: 'venue_full', label: 'Image 20 — Full Venue Overview' },
-]
+const IMAGE_FIELDS_BY_PAGE: Record<ImgPage, Field[]> = {
+  homepage: [
+    { id: 'hero', label: 'Hero Background' },
+    { id: 'venue_exterior', label: 'Section Image ("What This Is")' },
+    { id: 'exp_training', label: 'Training Card' },
+    { id: 'venue_sauna', label: 'Recovery Card' },
+    { id: 'venue_kitchen', label: 'Nutrition Card' },
+    { id: 'venue_decking', label: 'Mindset Card' },
+    { id: 'stevenPhoto', label: 'Coach — Steven Machin' },
+    { id: 'gazPhoto', label: 'Coach — Gaz Crosby' },
+    { id: 'venue_pool', label: 'Venue Grid — Indoor Pool' },
+    { id: 'venue_pool_dusk', label: 'Venue Grid — Pool at Dusk' },
+    { id: 'venue_garden', label: 'Venue Grid — Garden' },
+    { id: 'venue_outdoor_dining', label: 'Venue Grid — Outdoor Dining' },
+  ],
+  about: [
+    { id: 'stevenPhoto', label: 'Steven Machin — Photo' },
+    { id: 'gazPhoto', label: 'Gaz Crosby — Photo' },
+  ],
+  experience: [
+    { id: 'exp_training', label: 'Training Pillar Image' },
+    { id: 'venue_sauna', label: 'Recovery Pillar Image' },
+    { id: 'venue_kitchen', label: 'Nutrition Pillar Image' },
+    { id: 'venue_decking', label: 'Mindset Pillar Image' },
+  ],
+  venue: [
+    { id: 'venue_full', label: 'Image 20 — Full Venue Overview (Hero)' },
+    { id: 'venue_firepit', label: 'Image 1 — Fire Pit' },
+    { id: 'venue_decking', label: 'Image 2 — Decking with Views' },
+    { id: 'venue_pool_dusk', label: 'Image 3 — Pool Building Exterior at Dusk' },
+    { id: 'venue_sauna', label: 'Image 4 — Sauna' },
+    { id: 'venue_bathroom', label: 'Image 5 — Ensuite Bathroom' },
+    { id: 'venue_kitchen', label: 'Image 6 — Kitchen / Dining' },
+    { id: 'venue_sunset', label: 'Image 7 — Venue at Sunset' },
+    { id: 'venue_pool', label: 'Image 8 — Indoor Pool' },
+    { id: 'venue_games_room', label: 'Image 9 — Games Room' },
+    { id: 'venue_bunk_room', label: 'Image 10 — Bunk Room' },
+    { id: 'venue_floral_room', label: 'Image 11 — Floral Bedroom' },
+    { id: 'venue_botanical_room', label: 'Image 12 — Green Botanical Bedroom' },
+    { id: 'venue_orange_room', label: 'Image 13 — Orange Bedroom' },
+    { id: 'venue_green_floral', label: 'Image 14 — Green Floral Bedroom' },
+    { id: 'venue_pool_table', label: 'Image 15 — Pool Table / Spiral Staircase' },
+    { id: 'venue_chess', label: 'Image 16 — Giant Chess Board' },
+    { id: 'venue_exterior', label: 'Image 17 — Main Building Exterior Day' },
+    { id: 'venue_garden', label: 'Image 18 — Garden Steps and Lavender' },
+    { id: 'venue_outdoor_dining', label: 'Image 19 — Outdoor Dining / Lawn' },
+  ],
+}
+
+const IMG_PAGE_LABELS: Record<ImgPage, string> = {
+  homepage: 'Homepage',
+  about: 'About',
+  experience: 'Experience',
+  venue: 'Venue',
+}
 
 const SETTINGS_FIELDS: Field[] = [
   { id: 'siteName', label: 'Site Name' },
@@ -189,6 +220,7 @@ export default function AdminPage() {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
   const [dirty, setDirty] = useState(false)
   const [uploading, setUploading] = useState<Record<string, boolean>>({})
+  const [imgActivePage, setImgActivePage] = useState<ImgPage>('homepage')
 
   const token = () =>
     typeof window !== 'undefined' ? localStorage.getItem('mc_admin_token') : null
@@ -281,6 +313,11 @@ export default function AdminPage() {
   const imageAltsData = () => {
     if (!content) return {}
     return (content as Record<string, unknown>).imageAlts as Record<string, unknown> ?? {}
+  }
+
+  const imageTitlesData = () => {
+    if (!content) return {}
+    return (content as Record<string, unknown>).imageTitles as Record<string, unknown> ?? {}
   }
 
   const handleUpload = async (fieldId: string, file: File) => {
@@ -378,6 +415,7 @@ export default function AdminPage() {
   const pd = pageData()
   const imgs = imagesData()
   const alts = imageAltsData()
+  const titles = imageTitlesData()
   const settings = settingsData()
 
   // ── Admin UI ──
@@ -499,15 +537,30 @@ export default function AdminPage() {
           {/* ── Images section ── */}
           {activeSection === 'images' && (
             <div className="max-w-2xl">
-              <p className="text-[#706050] text-sm mb-6 leading-relaxed">
-                Upload images from your device. Each image can have alt text for accessibility and SEO.
-              </p>
+              {/* Page filter tabs */}
+              <div className="flex gap-1 flex-wrap mb-8">
+                {(Object.keys(IMG_PAGE_LABELS) as ImgPage[]).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setImgActivePage(p)}
+                    className="px-4 py-2 text-xs font-medium tracking-[0.1em] uppercase transition-colors"
+                    style={{
+                      background: imgActivePage === p ? '#C4963A' : 'transparent',
+                      color: imgActivePage === p ? '#080604' : '#706050',
+                      border: `1px solid ${imgActivePage === p ? '#C4963A' : 'rgba(196,150,58,0.2)'}`,
+                    }}
+                  >
+                    {IMG_PAGE_LABELS[p]}
+                  </button>
+                ))}
+              </div>
+
               <div className="space-y-8">
-                {IMAGE_FIELDS.map((field) => {
+                {IMAGE_FIELDS_BY_PAGE[imgActivePage].map((field) => {
                   const src = (imgs[field.id] as string) || ''
                   const isUploading = uploading[field.id]
                   return (
-                    <div key={field.id} className="border border-[rgba(196,150,58,0.1)] p-4 space-y-3">
+                    <div key={`${imgActivePage}-${field.id}`} className="border border-[rgba(196,150,58,0.1)] p-4 space-y-3">
                       <p className="text-[#A09080] text-xs font-medium tracking-[0.1em] uppercase">
                         {field.label}
                       </p>
@@ -518,7 +571,7 @@ export default function AdminPage() {
                         <img
                           src={src}
                           alt=""
-                          className="w-full max-h-40 object-cover border border-[rgba(196,150,58,0.15)]"
+                          className="w-full max-h-48 object-cover border border-[rgba(196,150,58,0.15)]"
                         />
                       )}
 
@@ -556,19 +609,26 @@ export default function AdminPage() {
                         />
                       </label>
 
+                      {/* Title */}
+                      <div>
+                        <label className="block text-[#5A5048] text-xs mb-1">Title</label>
+                        <input
+                          type="text"
+                          value={(titles[field.id] as string) || ''}
+                          onChange={(e) => { setField(['imageTitles', field.id], e.target.value); setDirty(true) }}
+                          placeholder="Image title shown on the site…"
+                          className="w-full bg-[#14100C] border border-[rgba(196,150,58,0.15)] text-[#F2EDE4] placeholder-[#3A3028] px-3 py-2 text-sm focus:outline-none focus:border-[#C4963A] transition-colors"
+                        />
+                      </div>
+
                       {/* Alt text */}
                       <div>
-                        <label className="block text-[#5A5048] text-xs mb-1">
-                          Alt text / description
-                        </label>
+                        <label className="block text-[#5A5048] text-xs mb-1">Alt text / description</label>
                         <input
                           type="text"
                           value={(alts[field.id] as string) || ''}
-                          onChange={(e) => {
-                            setField(['imageAlts', field.id], e.target.value)
-                            setDirty(true)
-                          }}
-                          placeholder={`Describe this image for accessibility…`}
+                          onChange={(e) => { setField(['imageAlts', field.id], e.target.value); setDirty(true) }}
+                          placeholder="Describe this image for accessibility and SEO…"
                           className="w-full bg-[#14100C] border border-[rgba(196,150,58,0.15)] text-[#F2EDE4] placeholder-[#3A3028] px-3 py-2 text-sm focus:outline-none focus:border-[#C4963A] transition-colors"
                         />
                       </div>

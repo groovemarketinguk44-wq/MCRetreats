@@ -193,7 +193,8 @@
     "venue_exterior": "/images/venue/17_exterior_day.jpg",
     "venue_garden": "/images/venue/18_garden.jpg",
     "venue_outdoor_dining": "/images/venue/19_outdoor_dining.jpg",
-    "venue_full": "/images/venue/20_full_venue.jpg"
+    "venue_full": "/images/venue/20_full_venue.jpg",
+    "exp_training": "/images/general/1_firepit.jpg"
   },
   "settings": {
     "depositAmount": 500,
@@ -233,5 +234,31 @@
     "venue_garden": "Landscaped gardens, fresh air, and a little bit of nowhere. Step outside and feel the difference immediately.",
     "venue_outdoor_dining": "Long tables, open lawns, and food worth sitting down for. Some of the best conversations happen out here.",
     "venue_full": "Everything you need. Nothing you don't. Five days that could change how you carry yourself for the next five years."
+  },
+  "imageTitles": {
+    "hero": "Hero Background",
+    "stevenPhoto": "Steven Machin",
+    "gazPhoto": "Gaz Crosby",
+    "exp_training": "Training",
+    "venue_firepit": "Fire Pit",
+    "venue_decking": "Decking with Views",
+    "venue_pool_dusk": "Pool Building Exterior at Dusk",
+    "venue_sauna": "Sauna",
+    "venue_bathroom": "Ensuite Bathroom",
+    "venue_kitchen": "Kitchen / Dining",
+    "venue_sunset": "Venue at Sunset",
+    "venue_pool": "Indoor Pool",
+    "venue_games_room": "Games Room",
+    "venue_bunk_room": "Bunk Room",
+    "venue_floral_room": "Floral Bedroom",
+    "venue_botanical_room": "Green Botanical Bedroom",
+    "venue_orange_room": "Orange Bedroom",
+    "venue_green_floral": "Green Floral Bedroom",
+    "venue_pool_table": "Pool Table / Spiral Staircase",
+    "venue_chess": "Giant Chess Board",
+    "venue_exterior": "Main Building Exterior Day",
+    "venue_garden": "Garden Steps and Lavender",
+    "venue_outdoor_dining": "Outdoor Dining / Lawn",
+    "venue_full": "Full Venue Overview"
   }
 }

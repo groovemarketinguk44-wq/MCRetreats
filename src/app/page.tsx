@@ -244,7 +244,7 @@ export default function HomePage() {
                 label: 'Training',
                 title: 'Structured Performance',
                 desc: 'Morning conditioning, strength work, metabolic sessions. Pushed with purpose.',
-                img: '/images/general/1_firepit.jpg',
+                img: images?.exp_training || '/images/general/1_firepit.jpg',
                 imgAlt: 'Training session at MC Retreats',
               },
               {
@@ -257,7 +257,7 @@ export default function HomePage() {
                 label: 'Recovery',
                 title: 'Active Restoration',
                 desc: 'Cold plunge, sauna, breathwork. Recovery as a performance tool.',
-                img: '/images/venue/4_sauna.jpg',
+                img: images?.venue_sauna || '/images/venue/4_sauna.jpg',
                 imgAlt: 'Sauna recovery facility at The Corn Crib',
               },
               {
@@ -269,7 +269,7 @@ export default function HomePage() {
                 label: 'Nutrition',
                 title: 'Performance Fuelling',
                 desc: 'Every meal planned. High protein, whole foods. You learn the method.',
-                img: '/images/venue/6_kitchen.jpg',
+                img: images?.venue_kitchen || '/images/venue/6_kitchen.jpg',
                 imgAlt: 'Professional kitchen for nutrition at MC Retreats',
               },
               {
@@ -282,7 +282,7 @@ export default function HomePage() {
                 label: 'Mindset',
                 title: 'Psychology of Performance',
                 desc: 'Group sessions on what holds you back. Leave with a framework for life.',
-                img: '/images/venue/2_decking_views.jpg',
+                img: images?.venue_decking || '/images/venue/2_decking_views.jpg',
                 imgAlt: 'Outdoor space for mindset sessions at MC Retreats',
               },
             ].map((item) => (

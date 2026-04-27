@@ -21,10 +21,11 @@ export default function VenuePage() {
   const venue = content.pages.venue
   const imgs = content.images ?? {}
   const alts = content.imageAlts ?? {}
+  const titles = content.imageTitles ?? {}
 
-  // Helper — falls back to static file if no upload yet
   const img = (key: string, fallback: string) => (imgs[key] as string) || fallback
   const alt = (key: string, fallback: string) => (alts[key] as string) || fallback
+  const title = (key: string, fallback: string) => (titles[key] as string) || fallback
 
   const facilities = [
     { key: 'venue_pool', fallback: '/images/venue/8_pool.jpg', title: 'Indoor Pool' },
@@ -142,7 +143,7 @@ export default function VenuePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#16130E] via-transparent to-transparent" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-lg text-[#F2EDE4] mb-2">{f.title}</h3>
+                  <h3 className="font-bold text-lg text-[#F2EDE4] mb-2">{title(f.key, f.title)}</h3>
                   <p className="text-[#706050] text-sm leading-relaxed">{alt(f.key, f.title)}</p>
                 </div>
               </div>
@@ -170,7 +171,7 @@ export default function VenuePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080604]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3">
-                    <p className="text-[#F2EDE4] text-xs font-medium">{r.label}</p>
+                    <p className="text-[#F2EDE4] text-xs font-medium">{title(r.key, r.label)}</p>
                   </div>
                 </div>
               </div>
@@ -197,7 +198,7 @@ export default function VenuePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080604]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-[#F2EDE4] text-sm font-medium mb-1">{o.label}</p>
+                  <p className="text-[#F2EDE4] text-sm font-medium mb-1">{title(o.key, o.label)}</p>
                   <p className="text-[#9A9080] text-xs leading-relaxed line-clamp-2">{alt(o.key, '')}</p>
                 </div>
               </div>
@@ -217,7 +218,7 @@ export default function VenuePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080604]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3">
-                    <p className="text-[#F2EDE4] text-xs font-medium">{e.label}</p>
+                    <p className="text-[#F2EDE4] text-xs font-medium">{title(e.key, e.label)}</p>
                   </div>
                 </div>
               </div>

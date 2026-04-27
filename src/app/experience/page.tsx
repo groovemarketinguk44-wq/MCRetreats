@@ -19,6 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ExperiencePage() {
   const content = getContent()
   const exp = content.pages.experience
+  const imgs = content.images ?? {}
+  const alts = content.imageAlts ?? {}
 
   const pillars = [
     {
@@ -26,8 +28,8 @@ export default function ExperiencePage() {
       label: 'Training',
       title: 'Structured Performance Work',
       desc: exp.trainingDesc as string,
-      img: '/images/general/1_firepit.jpg',
-      imgAlt: 'Outdoor training area at MC Retreats, The Corn Crib',
+      img: (imgs.exp_training as string) || '/images/general/1_firepit.jpg',
+      imgAlt: (alts.exp_training as string) || 'Outdoor training area at MC Retreats, The Corn Crib',
       items: [
         'Morning conditioning & mobility',
         'Strength training sessions',
@@ -41,8 +43,8 @@ export default function ExperiencePage() {
       label: 'Recovery',
       title: 'Active Restoration Protocols',
       desc: exp.recoveryDesc as string,
-      img: '/images/venue/4_sauna.jpg',
-      imgAlt: 'Sauna at The Corn Crib — recovery facility for MC Retreats',
+      img: (imgs.venue_sauna as string) || '/images/venue/4_sauna.jpg',
+      imgAlt: (alts.venue_sauna as string) || 'Sauna at The Corn Crib — recovery facility for MC Retreats',
       items: [
         'Cold plunge sessions (progressive)',
         'Finnish sauna access',
@@ -56,8 +58,8 @@ export default function ExperiencePage() {
       label: 'Nutrition',
       title: 'Performance Fuelling System',
       desc: exp.nutritionDesc as string,
-      img: '/images/venue/6_kitchen.jpg',
-      imgAlt: 'Professional kitchen for prepared meals at MC Retreats',
+      img: (imgs.venue_kitchen as string) || '/images/venue/6_kitchen.jpg',
+      imgAlt: (alts.venue_kitchen as string) || 'Professional kitchen for prepared meals at MC Retreats',
       items: [
         'All meals planned and prepared',
         'High-protein, whole-food approach',
@@ -71,8 +73,8 @@ export default function ExperiencePage() {
       label: 'Mindset',
       title: 'Psychology of High Performance',
       desc: exp.mindsetDesc as string,
-      img: '/images/venue/2_decking_views.jpg',
-      imgAlt: 'Outdoor space for mindset coaching at MC Retreats Wiltshire',
+      img: (imgs.venue_decking as string) || '/images/venue/2_decking_views.jpg',
+      imgAlt: (alts.venue_decking as string) || 'Outdoor space for mindset coaching at MC Retreats Wiltshire',
       items: [
         'Group performance psychology sessions',
         'Identity and behaviour change',
