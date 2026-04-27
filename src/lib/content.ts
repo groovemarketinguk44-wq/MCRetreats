@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'content.json')
+const DATA_DEFAULTS_FILE = path.join(process.cwd(), 'data-defaults', 'content.json')
 const TMP_FILE = '/tmp/mc-retreats-content.json'
 
 export type PageKey = 'home' | 'about' | 'experience' | 'venue' | 'pricing' | 'apply'
@@ -37,8 +38,14 @@ export interface ContentData {
 }
 
 function readDefaultContent(): ContentData {
-  const raw = fs.readFileSync(DATA_FILE, 'utf-8')
-  return JSON.parse(raw) as ContentData
+  // Primary: persistent volume (Fly.io) or local dev
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8')) as ContentData
+    }
+  } catch {}
+  // Fallback: bundled defaults baked into Docker image (volume empty on first boot)
+  return JSON.parse(fs.readFileSync(DATA_DEFAULTS_FILE, 'utf-8')) as ContentData
 }
 
 export function getContent(): ContentData {
