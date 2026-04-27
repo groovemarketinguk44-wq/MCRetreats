@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getPageSEO, getContent } from '@/lib/content'
+import { getPageSEO, getContent, ContentData } from '@/lib/content'
 import CTASection from '@/components/CTASection'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -22,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function AboutPage() {
   const content = getContent()
   const about = content.pages.about
+  const images = content.images
 
   return (
     <>
@@ -85,7 +86,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="img-placeholder aspect-[3/4] overflow-hidden relative" style={{ border: '1px solid rgba(196,150,58,0.12)' }}>
                 <Image
-                  src="/images/people/steven.jpg"
+                  src={images?.stevenPhoto || '/images/people/steven.jpg'}
                   alt="Steven Machin — Strength and Conditioning Coach"
                   fill
                   className="object-cover"
@@ -161,7 +162,7 @@ export default function AboutPage() {
             <div className="order-1 lg:order-2 relative">
               <div className="img-placeholder aspect-[3/4] overflow-hidden relative" style={{ border: '1px solid rgba(196,150,58,0.12)' }}>
                 <Image
-                  src="/images/people/gaz.jpg"
+                  src={images?.gazPhoto || '/images/people/gaz.jpg'}
                   alt="Gaz Crosby — Performance and Lifestyle Coach"
                   fill
                   className="object-cover"

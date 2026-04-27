@@ -33,6 +33,7 @@ export interface ContentData {
     successMessage: string
     [key: string]: unknown
   }
+  images?: Record<string, string>
 }
 
 function readDefaultContent(): ContentData {

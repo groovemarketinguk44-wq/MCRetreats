@@ -27,6 +27,7 @@ export default function HomePage() {
   const content = getContent()
   const { pages, settings } = content
   const home = pages.home
+  const images = content.images
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -71,7 +72,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <div className="img-placeholder w-full h-full" />
           <Image
-            src="/images/venue/7_venue_sunset.jpg"
+            src={images?.hero || '/images/venue/7_venue_sunset.jpg'}
             alt="The Corn Crib venue at sunset, Wiltshire"
             fill
             priority
@@ -133,13 +134,13 @@ export default function HomePage() {
                 The Retreat
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#F2EDE4] leading-tight mb-6">
-                {home.h1 as string}
+                {(home.heroHeadline as string) || (home.h1 as string)}
               </h2>
               <p className="text-[#9A9080] text-lg leading-relaxed mb-6">
-                {home.subheadline as string}
+                {(home.heroSubheadline as string) || ''}
               </p>
               <p className="text-[#706050] leading-relaxed mb-8">
-                {home.whoDescription as string}
+                {(home.whoCard1Desc as string) || ''}
               </p>
               <Link href="/experience" className="btn-ghost inline-flex">
                 See the Experience
@@ -151,7 +152,7 @@ export default function HomePage() {
                 style={{ border: '1px solid rgba(196,150,58,0.12)' }}
               >
                 <Image
-                  src="/images/venue/17_exterior_day.jpg"
+                  src={images?.venue_exterior || '/images/venue/17_exterior_day.jpg'}
                   alt="The Corn Crib exterior, Wiltshire fitness retreat venue"
                   fill
                   className="object-cover"
@@ -227,7 +228,7 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#F2EDE4] leading-tight mb-4">
               What Awaits You
             </h2>
-            <p className="text-[#706050]">{home.experienceIntro as string}</p>
+            <p className="text-[#706050]">{(home.experienceIntro as string) || ''}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -322,10 +323,10 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { src: '/images/venue/8_pool.jpg', alt: 'Heated outdoor pool', aspect: 'aspect-square' },
-                  { src: '/images/venue/3_pool_exterior_dusk.jpg', alt: 'Pool at dusk', aspect: 'aspect-square' },
-                  { src: '/images/venue/18_garden.jpg', alt: 'Private gardens', aspect: 'aspect-square' },
-                  { src: '/images/venue/19_outdoor_dining.jpg', alt: 'Outdoor dining area', aspect: 'aspect-square' },
+                  { src: images?.venue_pool || '/images/venue/8_pool.jpg', alt: 'Heated outdoor pool', aspect: 'aspect-square' },
+                  { src: images?.venue_pool_dusk || '/images/venue/3_pool_exterior_dusk.jpg', alt: 'Pool at dusk', aspect: 'aspect-square' },
+                  { src: images?.venue_garden || '/images/venue/18_garden.jpg', alt: 'Private gardens', aspect: 'aspect-square' },
+                  { src: images?.venue_outdoor_dining || '/images/venue/19_outdoor_dining.jpg', alt: 'Outdoor dining area', aspect: 'aspect-square' },
                 ].map((img) => (
                   <div key={img.src} className={`img-placeholder ${img.aspect} overflow-hidden relative`}>
                     <Image src={img.src} alt={img.alt} fill className="object-cover" />
@@ -368,16 +369,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
-                name: 'Steven Machin',
-                role: 'Strength & Conditioning',
-                img: '/images/people/steven.jpg',
-                quote: 'I don\'t work with excuses. I work with results.',
+                name: (home.coach1Name as string) || 'Steven Machin',
+                role: (home.coach1Role as string) || 'Strength & Conditioning',
+                img: images?.stevenPhoto || '/images/people/steven.jpg',
+                quote: (home.coach1Quote as string) || "I don't work with excuses. I work with results.",
               },
               {
-                name: 'Gaz Crosby',
-                role: 'Performance & Lifestyle',
-                img: '/images/people/gaz.jpg',
-                quote: 'Most men know what to do. They just need the right environment to do it.',
+                name: (home.coach2Name as string) || 'Gaz Crosby',
+                role: (home.coach2Role as string) || 'Performance & Lifestyle',
+                img: images?.gazPhoto || '/images/people/gaz.jpg',
+                quote: (home.coach2Quote as string) || 'Most men know what to do. They just need the right environment to do it.',
               },
             ].map((coach) => (
               <div key={coach.name} className="card-dark p-8 flex flex-col items-center text-center">
@@ -477,19 +478,19 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                quote: "Four days that changed how I approach training, food, and myself. The level of coaching is something I've never experienced before.",
-                name: 'J.M.',
-                role: 'Business Owner',
+                quote: (home.testimonial1Quote as string) || "Four days that changed how I approach training, food, and myself.",
+                name: (home.testimonial1Name as string) || 'J.M.',
+                role: (home.testimonial1Role as string) || 'Business Owner',
               },
               {
-                quote: "I'd been in a rut for two years. This reset everything. The venue, the coaches, the group — exactly what I needed.",
-                name: 'R.T.',
-                role: 'Financial Director',
+                quote: (home.testimonial2Quote as string) || "I'd been in a rut for two years. This reset everything.",
+                name: (home.testimonial2Name as string) || 'R.T.',
+                role: (home.testimonial2Role as string) || 'Financial Director',
               },
               {
-                quote: 'Not a spa break. Not a bootcamp. Something in between and better than both. Came home a different person.',
-                name: 'D.H.',
-                role: 'Entrepreneur',
+                quote: (home.testimonial3Quote as string) || 'Not a spa break. Not a bootcamp. Something in between and better than both.',
+                name: (home.testimonial3Name as string) || 'D.H.',
+                role: (home.testimonial3Role as string) || 'Entrepreneur',
               },
             ].map((t) => (
               <div key={t.name} className="card-dark p-7">
