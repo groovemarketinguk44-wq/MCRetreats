@@ -4,6 +4,8 @@ import { getPageSEO, getContent } from '@/lib/content'
 import FAQAccordion from '@/components/FAQAccordion'
 import CTASection from '@/components/CTASection'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEO('pricing')
   return {

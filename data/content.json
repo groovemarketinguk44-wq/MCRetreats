@@ -7,7 +7,13 @@
       "ogTitle": "MC Retreats | Elite 4-Day Fitness Retreat, Wiltshire 2025",
       "ogDescription": "4 days. 10 men. One transformational experience at The Corn Crib, Wiltshire — 7–11 September 2025.",
       "canonicalUrl": "https://mc-retreats.fly.dev",
-      "keywords": ["fitness retreat uk", "mens fitness retreat", "wellness retreat wiltshire", "performance retreat", "mens retreat 2025"],
+      "keywords": [
+        "fitness retreat uk",
+        "mens fitness retreat",
+        "wellness retreat wiltshire",
+        "performance retreat",
+        "mens retreat 2025"
+      ],
       "heroHeadline": "Rebuild. Reset. Rise.",
       "heroSubheadline": "A 4-day elite performance retreat for men who are serious about transforming their body, mind, and standards.",
       "heroBadge": "7–11 September 2025 · The Corn Crib, Wiltshire",
@@ -58,7 +64,12 @@
       "ogTitle": "About MC Retreats — Meet Your Coaches",
       "ogDescription": "Two elite coaches. One shared mission. Meet Steven Machin and Gaz Crosby.",
       "canonicalUrl": "https://mc-retreats.fly.dev/about",
-      "keywords": ["steven machin coach", "gaz crosby fitness", "mc retreats coaches", "performance coaches uk"],
+      "keywords": [
+        "steven machin coach",
+        "gaz crosby fitness",
+        "mc retreats coaches",
+        "performance coaches uk"
+      ],
       "heroSubtitle": "Two coaches. One shared mission. Decades of combined experience distilled into four days that change men.",
       "missionQuote": "We've worked with hundreds of high-performing men. The pattern is always the same: they know what to do. They just need the right environment to finally do it.",
       "stevenName": "Steven Machin",
@@ -81,7 +92,12 @@
       "ogTitle": "The MC Retreats Experience",
       "ogDescription": "Training. Recovery. Nutrition. Mindset. Four pillars. Four days. One transformation.",
       "canonicalUrl": "https://mc-retreats.fly.dev/experience",
-      "keywords": ["fitness retreat experience", "retreat training programme", "cold plunge sauna retreat", "performance mindset retreat"],
+      "keywords": [
+        "fitness retreat experience",
+        "retreat training programme",
+        "cold plunge sauna retreat",
+        "performance mindset retreat"
+      ],
       "trainingTitle": "Structured Performance Work",
       "trainingDesc": "Every session is intentional. From early morning conditioning to strength work and metabolic finishers — you'll be pushed, but with precision. No wasted effort, no filler. Just structured progressive work that leaves a mark.",
       "recoveryTitle": "Active Restoration Protocols",
@@ -98,7 +114,12 @@
       "ogTitle": "Our Venue — The Corn Crib, Wiltshire",
       "ogDescription": "Exclusive private estate. 10 rooms. Heated pool, Finnish sauna, stunning gardens. The ultimate performance environment.",
       "canonicalUrl": "https://mc-retreats.fly.dev/venue",
-      "keywords": ["corn crib wiltshire", "private fitness retreat venue", "exclusive retreat uk", "luxury fitness venue wiltshire"],
+      "keywords": [
+        "corn crib wiltshire",
+        "private fitness retreat venue",
+        "exclusive retreat uk",
+        "luxury fitness venue wiltshire"
+      ],
       "venueIntro": "The Corn Crib is an exclusive private estate nestled deep in the Wiltshire countryside. Taken over entirely for 10 men — no other guests, no distractions — this is a space designed for focus, performance, and transformation.",
       "venueDescription": "Set within beautifully maintained private grounds, The Corn Crib delivers everything a high-performance retreat demands. A heated outdoor pool. A Finnish sauna. A professional kitchen. Multiple spaces for training, recovery, and reflection. It's not just a beautiful venue — it's the right environment.",
       "poolDesc": "The social heart of the estate. Used for active recovery, contrast therapy, and relaxation between sessions.",
@@ -115,7 +136,12 @@
       "ogTitle": "MC Retreats Pricing — From £1,495",
       "ogDescription": "From £1,495 per person. Deposit from £500. Payment plan available. Only 10 rooms.",
       "canonicalUrl": "https://mc-retreats.fly.dev/pricing",
-      "keywords": ["mc retreats price", "fitness retreat cost uk", "retreat deposit payment plan", "wiltshire retreat booking"],
+      "keywords": [
+        "mc retreats price",
+        "fitness retreat cost uk",
+        "retreat deposit payment plan",
+        "wiltshire retreat booking"
+      ],
       "pricingIntro": "This is a serious investment in yourself. The environment, expertise, and experience are built to deliver results that compound for years. The question isn't whether you can afford it — it's whether you can afford not to.",
       "perPersonLabel": "Per Person",
       "perPersonDesc": "Shared accommodation. Full retreat access.",
@@ -135,7 +161,11 @@
       "ogTitle": "Apply — MC Retreats September 2025",
       "ogDescription": "Only 10 spots. Apply now to secure your place on the retreat.",
       "canonicalUrl": "https://mc-retreats.fly.dev/apply",
-      "keywords": ["apply mc retreats", "book fitness retreat uk", "retreat booking september 2025"],
+      "keywords": [
+        "apply mc retreats",
+        "book fitness retreat uk",
+        "retreat booking september 2025"
+      ],
       "formIntro": "Complete the form below to apply for your place. Once submitted, you'll select your payment option and proceed to secure checkout. Spots are limited to 10."
     }
   },
@@ -178,5 +208,30 @@
     "pricingNote": "All payments processed securely via Stripe. Payment plans run until August 2025.",
     "successMessage": "Your place is reserved. We'll be in touch within 24 hours with everything you need to prepare.",
     "contactEmail": "info@mcretreats.com"
+  },
+  "imageAlts": {
+    "hero": "The Corn Crib venue at golden hour, Wiltshire",
+    "stevenPhoto": "Steven Machin — Strength and Conditioning Coach",
+    "gazPhoto": "Gaz Crosby — Performance and Lifestyle Coach",
+    "venue_firepit": "Where the evening starts to slow down. Pull up a chair, feel the warmth, and let the conversation go wherever it needs to go.",
+    "venue_decking": "Open skies, open fields, nowhere to be. Your morning coffee has never had a backdrop like this.",
+    "venue_pool_dusk": "This is what it looks like from the outside. What happens inside is a different thing entirely.",
+    "venue_sauna": "Heat, stillness, and a window onto the water. The kind of reset your nervous system has been asking for.",
+    "venue_bathroom": "The details matter. Fresh towels, clean lines, a space that feels like it was put together with care.",
+    "venue_kitchen": "Gaz doesn't do average. This kitchen was built for serious cooking — and every meal you eat here will show it.",
+    "venue_sunset": "The Corn Crib, Wiltshire. Four days. Five men. Something shifts here that doesn't shift anywhere else.",
+    "venue_pool": "Swim, float, or just sit in the hot tub. The pool isn't a feature — it's a mood.",
+    "venue_games_room": "Because recovery doesn't have to be serious. Foosball, table tennis, cold beer — this room earns its place.",
+    "venue_bunk_room": "Simple, solid, and surprisingly good sleep. The kind of room that reminds you how little you actually need.",
+    "venue_floral_room": "Each room has its own character. This one's bold, warm, and built for proper rest.",
+    "venue_botanical_room": "Earthy tones, botanical detail, and a bed you won't want to leave. The mornings here are earned.",
+    "venue_orange_room": "Thoughtfully dressed, quietly luxurious. Sleep well — tomorrow's session starts early.",
+    "venue_green_floral": "Calm, considered, and nothing like your bedroom at home. That's the point.",
+    "venue_pool_table": "Two floors, one space, no shortage of ways to wind down. The evenings here belong to you.",
+    "venue_chess": "Floor-level chess. Not something you'll find at many retreats. Not something you'll forget either.",
+    "venue_exterior": "Brick, slate, glass, and wide open sky. Built to feel like somewhere — because it is.",
+    "venue_garden": "Landscaped gardens, fresh air, and a little bit of nowhere. Step outside and feel the difference immediately.",
+    "venue_outdoor_dining": "Long tables, open lawns, and food worth sitting down for. Some of the best conversations happen out here.",
+    "venue_full": "Everything you need. Nothing you don't. Five days that could change how you carry yourself for the next five years."
   }
 }

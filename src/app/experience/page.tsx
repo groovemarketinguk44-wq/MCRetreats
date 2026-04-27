@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { getPageSEO, getContent } from '@/lib/content'
 import CTASection from '@/components/CTASection'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEO('experience')
   return {

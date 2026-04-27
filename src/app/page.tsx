@@ -6,6 +6,8 @@ import CTASection from '@/components/CTASection'
 import ScarcityBar from '@/components/ScarcityBar'
 import HomeClient from './HomeClient'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEO('home')
   const settings = getSettings()

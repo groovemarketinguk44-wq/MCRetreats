@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { getPageSEO, getContent } from '@/lib/content'
 import ApplyForm from './ApplyForm'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEO('apply')
   return {

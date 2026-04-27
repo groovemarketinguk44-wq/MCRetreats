@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { getPageSEO, getContent, ContentData } from '@/lib/content'
 import CTASection from '@/components/CTASection'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEO('about')
   return {
