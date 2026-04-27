@@ -143,8 +143,7 @@ export default function VenuePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#16130E] via-transparent to-transparent" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-lg text-[#F2EDE4] mb-2">{title(f.key, f.title)}</h3>
-                  <p className="text-[#706050] text-sm leading-relaxed">{alt(f.key, f.title)}</p>
+                  <h3 className="font-bold text-lg text-[#F2EDE4]">{title(f.key, f.title)}</h3>
                 </div>
               </div>
             ))}
