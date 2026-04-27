@@ -212,7 +212,7 @@ export default function AdminPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!password.trim()) return
+    if (!password) return
     setLoginLoading(true)
     setLoginError('')
     try {
@@ -329,11 +329,11 @@ export default function AdminPage() {
 
               <button
                 type="submit"
-                disabled={loginLoading || !password.trim()}
+                disabled={loginLoading || !password}
                 className="btn-gold w-full"
                 style={{
                   padding: '0.875rem',
-                  opacity: loginLoading || !password.trim() ? 0.6 : 1,
+                  opacity: loginLoading || !password ? 0.6 : 1,
                   cursor: loginLoading ? 'wait' : 'pointer',
                 }}
               >
